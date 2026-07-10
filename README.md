@@ -226,10 +226,10 @@ A sample dataset is included at [`books.csv`](./books.csv).
 
 ## Documentation
 
-A full written report — architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX).`DSA_FINAL_BOOK(1).pdf`, then link it from this section.
+A full written report — architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX).`DSA_FINAL_BOOK(1).pdf`.
 
 ---
 
 ## License
 
-No license has been chosen yet. Consider adding an [MIT License](https://choosealicense.com/licenses/mit/) if you intend this to be open source.
+Consider adding an [MIT License](https://choosealicense.com/licenses/mit/) if you intend this to be open source.
