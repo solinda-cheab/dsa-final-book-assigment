@@ -1,0 +1,22 @@
+# Build artifacts
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.lib
+*.dll
+*.pdb
+
+# raylib vendored dependency (users should download it themselves)
+raylib-book-library/include/*
+!raylib-book-library/include/.gitkeep
+raylib-book-library/lib/*
+!raylib-book-library/lib/.gitkeep
+
+# Editor/OS cruft
+.vscode/
+.vs/
+*.swp
+.DS_Store
+Thumbs.db

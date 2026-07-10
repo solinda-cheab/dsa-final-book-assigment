@@ -1,0 +1,408 @@
+#ifndef CSLINKLIST
+#define CSLINKLIST
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+
+class SLinkList {
+
+private:
+
+    class Node {
+    public:
+        T data;
+        Node* next;
+
+        Node(T value) {
+            data = value;
+            next = nullptr;
+        }
+    };
+
+
+    Node* head;
+    Node* tail;
+    int count;
+
+
+public:
+
+    SLinkList() {
+        head = nullptr;
+        tail = nullptr;
+        count = 0;
+    }
+
+
+    SLinkList(const SLinkList& other) {
+        head = nullptr;
+        tail = nullptr;
+        count = 0;
+
+        Node* current = other.head;
+
+        while (current != nullptr) {
+            pushBack(current->data);
+            current = current->next;
+        }
+    }
+
+
+    SLinkList& operator=(const SLinkList& other) {
+
+        if (this == &other)
+            return *this;
+
+        clear();
+
+        Node* current = other.head;
+
+        while (current != nullptr) {
+            pushBack(current->data);
+            current = current->next;
+        }
+
+        return *this;
+    }
+
+
+    ~SLinkList() {
+        clear();
+    }
+
+
+    bool isEmpty() const {
+        return head == nullptr;
+    }
+
+
+    int size() const {
+        return count;
+    }
+
+
+    void pushFront(T value) {
+
+        Node* newNode = new Node(value);
+
+        if (isEmpty()) {
+            head = tail = newNode;
+        }
+        else {
+            newNode->next = head;
+            head = newNode;
+        }
+
+        count++;
+    }
+
+
+
+    void pushBack(T value) {
+
+        Node* newNode = new Node(value);
+
+        if (isEmpty()) {
+            head = tail = newNode;
+        }
+        else {
+            tail->next = newNode;
+            tail = newNode;
+        }
+
+        count++;
+    }
+
+
+
+    void insert(int index, T value) {
+
+        if (index < 0 || index > count) {
+            cout << "Invalid index\n";
+            return;
+        }
+
+
+        if (index == 0) {
+            pushFront(value);
+            return;
+        }
+
+
+        if (index == count) {
+            pushBack(value);
+            return;
+        }
+
+
+        Node* current = head;
+
+
+        for (int i = 0; i < index - 1; i++)
+            current = current->next;
+
+
+        Node* newNode = new Node(value);
+
+
+        newNode->next = current->next;
+        current->next = newNode;
+
+
+        count++;
+    }
+
+
+
+    void popFront() {
+
+        if (isEmpty())
+            return;
+
+
+        Node* temp = head;
+
+        head = head->next;
+
+
+        delete temp;
+
+        count--;
+
+
+        if (head == nullptr)
+            tail = nullptr;
+    }
+
+
+
+    void popBack() {
+
+        if (isEmpty())
+            return;
+
+
+        if (head == tail) {
+
+            delete head;
+
+            head = tail = nullptr;
+
+            count = 0;
+
+            return;
+        }
+
+
+        Node* current = head;
+
+
+        while (current->next != tail)
+            current = current->next;
+
+
+        delete tail;
+
+
+        tail = current;
+
+        tail->next = nullptr;
+
+
+        count--;
+    }
+
+
+
+    void removeAt(int index) {
+
+        if (index < 0 || index >= count) {
+            cout << "Invalid index\n";
+            return;
+        }
+
+
+        if (index == 0) {
+            popFront();
+            return;
+        }
+
+
+        Node* current = head;
+
+
+        for (int i = 0; i < index - 1; i++)
+            current = current->next;
+
+
+        Node* temp = current->next;
+
+
+        current->next = temp->next;
+
+
+        if (temp == tail)
+            tail = current;
+
+
+        delete temp;
+
+
+        count--;
+    }
+
+
+
+    T get(int index) const {
+
+        if (index < 0 || index >= count) {
+            cout << "Invalid index\n";
+            return T();
+        }
+
+
+        Node* current = head;
+
+
+        for (int i = 0; i < index; i++)
+            current = current->next;
+
+
+        return current->data;
+    }
+
+
+
+    void set(int index, T value) {
+
+        if (index < 0 || index >= count)
+            return;
+
+
+        Node* current = head;
+
+
+        for (int i = 0; i < index; i++)
+            current = current->next;
+
+
+        current->data = value;
+    }
+
+
+
+    void reverse() {
+
+        Node* previous = nullptr;
+        Node* current = head;
+        Node* next = nullptr;
+
+
+        tail = head;
+
+
+        while (current != nullptr) {
+
+            next = current->next;
+
+            current->next = previous;
+
+            previous = current;
+
+            current = next;
+        }
+
+
+        head = previous;
+    }
+
+
+
+    void clear() {
+
+        while (!isEmpty())
+            popFront();
+    }
+
+
+
+    void print() const {
+
+        Node* current = head;
+
+        while (current != nullptr) {
+
+            cout << current->data;
+
+            if (current->next != nullptr)
+                cout << " -> ";
+
+            current = current->next;
+        }
+
+        cout << endl;
+    }
+
+
+    template <class Func>
+    void print(Func printer) const {
+
+        Node* current = head;
+
+        while (current != nullptr) {
+
+            printer(current->data);
+
+            if (current->next != nullptr)
+                cout << " -> ";
+
+            current = current->next;
+        }
+
+        cout << endl;
+    }
+
+
+
+    int find(const T& value) const {
+
+        Node* current = head;
+        int index = 0;
+
+        while (current != nullptr) {
+
+            if (current->data == value)
+                return index;
+
+            current = current->next;
+            index++;
+        }
+
+        return -1;
+    }
+
+
+
+    template <class Pred>
+    int findIf(Pred pred) const {
+
+        Node* current = head;
+        int index = 0;
+
+        while (current != nullptr) {
+
+            if (pred(current->data))
+                return index;
+
+            current = current->next;
+            index++;
+        }
+
+        return -1;
+    }
+
+};
+
+#endif

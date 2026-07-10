@@ -1,0 +1,60 @@
+#ifndef MAINMENU_H
+#define MAINMENU_H
+
+#include "yukkk.h"
+
+// Forward declaration
+void bookMenu();
+void logo()
+{
+    system("chcp 65001");
+    system("cls");
+    cout << "\n\n\n";
+
+    cout << "\033[38;2;0;255;0m    ██╗     ██╗██████╗ ██████╗  █████╗ ██████╗ ██╗   ██╗\033[0m" << endl;
+    cout << "\033[38;2;0;255;95m    ██║     ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝\033[0m" << endl;
+    cout << "\033[38;2;0;255;135m    ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝ \033[0m" << endl;
+    cout << "\033[38;2;0;255;135m    ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝  \033[0m" << endl;
+    cout << "\033[38;2;0;255;175m    ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║   \033[0m" << endl;
+    cout << "\033[38;2;0;255;175m    ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   \033[0m" << endl;
+
+    cout << "\n\n";
+}
+void menu()
+{
+
+    string choice;
+    do
+    {
+
+        logo();
+        cout << "\033[38;2;0;255;0m    ╔═══[1]   Book Management\033[0m" << endl;
+        cout << "\033[38;2;0;255;0m    ║\033[0m" << endl;
+        cout << "\033[38;2;0;255;95m    ╠═════[2]    Member Management\033[0m" << endl;
+        cout << "\033[38;2;0;255;95m    ║\033[0m" << endl;
+        cout << "\033[38;2;0;255;135m    ╠════════[3]    Transaction Management\033[0m" << endl;
+        cout << "\033[38;2;0;255;135m    ║\033[0m" << endl;
+        cout << "\033[38;2;0;255;135m    ╠═══════════[4]     Exit" << endl;
+        cout << "\033[38;2;0;255;175m    ║\033[0m" << endl;
+        cout << "\033[38;2;0;255;175m    ╚═══>   ";
+        cin >> choice;
+        cout << "\033[0m";
+        if (choice == "1")
+        {
+            bookMenu();
+        }
+        else if (choice == "2")
+        {
+        }
+        else if (choice == "3")
+        {
+        }
+        else if (choice == "4")
+        {
+            return;
+        }
+
+    } while (choice != "1" && choice != "2" && choice != "3" && choice != "4");
+}
+
+#endif
