@@ -232,4 +232,4 @@ A full written report — architecture rationale, design decisions, and diagrams
 
 ## License
 
-Consider adding an [MIT License](https://choosealicense.com/licenses/mit/) if you intend this to be open source.
+[MIT License](https://choosealicense.com/licenses/mit/) 
