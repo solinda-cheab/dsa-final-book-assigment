@@ -20,13 +20,13 @@ This repository was designed top-down: the data model and CRUD operations were p
 
 ## Top-Down Design
 
-### CLI Edition — Library Management System
+### CLI Edition : Library Management System
 
 The console edition was scoped as a full library system, broken down from the top-level `Book Management System` entity into its CRUD operations and a sorting utility.
 
 ![CLI top-down design](./assets/s1.jpg)
 
-### GUI Edition — Linked-List Architecture
+### GUI Edition : Linked-List Architecture
 
 The GUI edition centers on a `SLinkList<Book>` that backs every user operation (insert, delete, update, search, traverse, display), with CSV load/save on startup and exit.
 
@@ -226,7 +226,7 @@ A sample dataset is included at [`books.csv`](./books.csv).
 
 ## Documentation
 
-A full written report — architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX).`DSA_FINAL_BOOK(1).pdf`.
+A full written report, architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX).`DSA_FINAL_BOOK(1).pdf`.
 
 ---
 
