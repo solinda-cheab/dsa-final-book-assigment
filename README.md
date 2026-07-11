@@ -1,6 +1,6 @@
 # Book Management System
 
-A C++ book-cataloguing project built in two parallel implementations: a **console (CLI) edition** with an ANSI-styled menu system, and a **desktop GUI edition** built with [raylib](https://www.raylib.com/) on top of a hand-written singly linked list. Both editions persist data to CSV and share the same core domain model — a `Book` with `id`, `title`, `author`, `year`, and `genre`.
+A C++ book-cataloguing project built in two parallel implementations: a **console (CLI) edition** with an ANSI-styled menu system, and a **desktop GUI edition** built with [raylib](https://www.raylib.com/) on top of a hand-written singly linked list. Both editions persist data to CSV and share the same core domain model a `Book` with `id`, `title`, `author`, `year`, and `genre`.
 
 This repository was designed top-down: the data model and CRUD operations were planned first, then implemented twice against two different interfaces to compare a text-based menu workflow against an interactive, mouse-driven one.
 
@@ -135,11 +135,11 @@ book-management-system/
 | Libraries | Windows API (`windows.h`, `mmsystem.h` / `winmm`) | [raylib](https://github.com/raysan5/raylib) |
 | OS | Windows only (uses `system("cls")`, ANSI escapes, `Beep`) | Windows (as shipped); portable with minor changes — see below |
 
-> ⚠️ **Platform note:** Both editions were written and tested on Windows. The CLI edition depends directly on the Windows API and Windows console behavior, so it cannot be compiled natively on Linux. The GUI edition depends only on raylib and the C++ standard library, but its `main()` hardcodes a Windows font path (`C:/Windows/Fonts/consola.ttf`) — see the Ubuntu section below for the one-line fix needed to run it there.
+>  **Platform note:** Both editions were written and tested on Windows. The CLI edition depends directly on the Windows API and Windows console behavior, so it cannot be compiled natively on Linux. The GUI edition depends only on raylib and the C++ standard library, but its `main()` hardcodes a Windows font path (`C:/Windows/Fonts/consola.ttf`) — see the Ubuntu section below for the one-line fix needed to run it there.
 
 ---
 
-## Getting Started — Windows
+## Getting Started : Windows
 
 ### CLI Edition
 
@@ -170,7 +170,7 @@ book-management-system/
 
 ---
 
-## Getting Started — Ubuntu / Linux
+## Getting Started: Ubuntu / Linux
 
 ### GUI Edition (recommended for Linux)
 
@@ -226,7 +226,7 @@ A sample dataset is included at [`books.csv`](./books.csv).
 
 ## Documentation
 
-A full written report, architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX).`DSA_FINAL_BOOK(1).pdf`.
+A full written report, architecture rationale, design decisions, and diagrams — was authored separately as a document on Overleaf (LaTeX) [`DSA_FINAL_BOOK(1)`](./DSA_FINAL_BOOK(1)).
 
 ---
 
